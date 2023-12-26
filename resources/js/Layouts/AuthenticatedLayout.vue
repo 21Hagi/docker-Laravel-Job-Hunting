@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('company.index')" :active="route().current('company.index')">
                                     企業情報
                                 </NavLink>
+                                <NavLink :href="route('resume.create')" :active="route().current('resume.create')">
+                                    履歴書作成
+                                </NavLink>
                             </div>
                         </div>
 
@@ -120,6 +123,9 @@ const showingNavigationDropdown = ref(false);
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('company.index')" :active="route().current('company.index')">
                             企業情報
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('resume.create')" :active="route().current('resume.create')">
+                            履歴書作成
                         </ResponsiveNavLink>
                     </div>
 

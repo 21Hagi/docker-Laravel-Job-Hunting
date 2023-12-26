@@ -10,17 +10,8 @@
     })
 
     const form = reactive({
-        name: null,
-        email: null,
-        num_of_hires: null,
-        turnover_rate: null,
-        paid_holidays_rate: null,
-        annual_income: null,
-        work_overtime: null,
-        starting_salary: null,
-        week_off: null,
-        url: null,
-        memo: null
+        name: null, email: null, num_of_hires: null, turnover_rate: null, paid_holidays_rate: null,
+        annual_income: null, work_overtime: null, starting_salary: null, week_off: null, url: null, memo: null
     })
 
     const storeCompany = () => {

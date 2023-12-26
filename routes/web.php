@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResumeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -9,6 +10,9 @@ use Inertia\Inertia;
 Route::resource('company', CompanyController::class)
 ->middleware(['auth', 'verified']);
 
+Route::resource('resume', ResumeController::class)
+->only(['create', 'store'])
+->middleware(['auth', 'verified']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
