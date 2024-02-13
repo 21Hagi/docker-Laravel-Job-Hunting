@@ -18,18 +18,10 @@
 
     const handleLastNameInput = () => {
         props.formData.furigana_last_name = autokanaLastName.getFurigana();
-
-        if (document.getElementById("kanji_last_name").value === "") {
-            autokanaLastName = AutoKana.bind("#kanji_last_name", "#furigana_last_name");
-        }
     };
 
     const handleFirstNameInput =  () => {
         props.formData.furigana_first_name = autokanaFirstName.getFurigana();
-
-        if (document.getElementById("kanji_first_name").value === "") {
-            autokanaFirstName = AutoKana.bind("#kanji_first_name", "#furigana_first_name");
-        }
     };
 </script>
 

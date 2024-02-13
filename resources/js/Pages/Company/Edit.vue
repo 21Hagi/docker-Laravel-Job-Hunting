@@ -16,7 +16,7 @@
         email: props.company.email,
         num_of_hires: props.company.num_of_hires,
         turnover_rate: props.company.turnover_rate,
-        paid_holidays_rate: props.company.paid_holidays_rate,
+        paid_holidays: props.company.paid_holidays,
         annual_income: props.company.annual_income,
         work_overtime: props.company.work_overtime,
         starting_salary: props.company.starting_salary,
@@ -61,19 +61,14 @@
                                         <InputError :message="props.errors.num_of_hires"></InputError>
                                     </div>
                                     <div class="relative">
+                                        <label for="starting_salary" class="leading-7 text-sm text-gray-600">初任給（万円）</label>
+                                        <input type="number" min="15" id="starting_salary" name="starting_salary" v-model="form.starting_salary" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                        <InputError :message="props.errors.starting_salary"></InputError>
+                                    </div>
+                                    <div class="relative">
                                         <label for="turnover_rate" class="leading-7 text-sm text-gray-600">離職率（%）</label>
                                         <input type="number" min="0" max="100" step="0.1" id="turnover_rate" name="turnover_rate" v-model="form.turnover_rate" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                         <InputError :message="props.errors.turnover_rate"></InputError>
-                                    </div>
-                                    <div class="relative">
-                                        <label for="paid_holidays" class="leading-7 text-sm text-gray-600">有給取得率（%）</label>
-                                        <input type="number" min="0" max="100" step="0.01" id="paid_holidays_rate" name="paid_holidays_rate" v-model="form.paid_holidays_rate" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                        <InputError :message="props.errors.paid_holidays_rate"></InputError>
-                                    </div>
-                                    <div class="relative">
-                                        <label for="annual_income" class="leading-7 text-sm text-gray-600">平均年収（万円）</label>
-                                        <input type="number" id="annual_income" name="annual_income" v-model="form.annual_income" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                        <InputError :message="props.errors.annual_income"></InputError>
                                     </div>
                                     <div class="relative">
                                         <label for="work_overtime" class="leading-7 text-sm text-gray-600">残業[月]（時間）</label>
@@ -81,9 +76,14 @@
                                         <InputError :message="props.errors.work_overtime"></InputError>
                                     </div>
                                     <div class="relative">
-                                        <label for="starting_salary" class="leading-7 text-sm text-gray-600">初任給（万円）</label>
-                                        <input type="number" min="15" id="starting_salary" name="starting_salary" v-model="form.starting_salary" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                        <InputError :message="props.errors.starting_salary"></InputError>
+                                        <label for="paid_holidays" class="leading-7 text-sm text-gray-600">有給取得（年平均）（日）</label>
+                                        <input type="number" min="0" max="100" step="0.01" id="paid_holidays" name="paid_holidays" v-model="form.paid_holidays" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                        <InputError :message="props.errors.paid_holidays"></InputError>
+                                    </div>
+                                    <div class="relative">
+                                        <label for="annual_income" class="leading-7 text-sm text-gray-600">平均年収（万円）</label>
+                                        <input type="number" id="annual_income" name="annual_income" v-model="form.annual_income" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                        <InputError :message="props.errors.annual_income"></InputError>
                                     </div>
                                     <div class="relative">
                                         <label for="week_off" class="leading-7 text-sm text-gray-600">週休</label>

@@ -48,7 +48,7 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300">
-                            <input type="number" id="zip_code1" name="zip_code1" v-model="props.formData.zip_code1" @change="fetchAddress1()" autocomplete="off" class="w-24 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="zip_code1" name="zip_code1" v-model="props.formData.zip_code1" @change="fetchAddress1()" autocomplete="off" class="w-28 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +101,7 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300 flex">
-                            <input type="number" id="zip_code2" name="zip_code2" v-model="props.formData.zip_code2" @change="fetchAddress2()" autocomplete="off" class="w-24 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="zip_code2" name="zip_code2" v-model="props.formData.zip_code2" @change="fetchAddress2()" autocomplete="off" class="w-28 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </td>
                     </tr>
                     <tr>

@@ -22,7 +22,7 @@ const showingNavigationDropdown = ref(false);
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
                                     <ApplicationLogo
-                                        class="block h-9 w-12 fill-current text-gray-800"
+                                        class="block h-11 w-12 fill-current text-gray-800"
                                     />
                                 </Link>
                             </div>
@@ -30,13 +30,16 @@ const showingNavigationDropdown = ref(false);
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    ダッシュボード
                                 </NavLink>
                                 <NavLink :href="route('company.index')" :active="route().current('company.index')">
                                     企業情報
                                 </NavLink>
                                 <NavLink :href="route('resume.create')" :active="route().current('resume.create')">
                                     履歴書作成
+                                </NavLink>
+                                <NavLink :href="route('interview.index')" :active="route().current('interview.index')">
+                                    面接
                                 </NavLink>
                             </div>
                         </div>
@@ -70,9 +73,9 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
+                                        <DropdownLink :href="route('profile.edit')"> プロフィール </DropdownLink>
                                         <DropdownLink :href="route('logout')" method="post" as="button">
-                                            Log Out
+                                            ログアウト
                                         </DropdownLink>
                                     </template>
                                 </Dropdown>
@@ -119,13 +122,16 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                            ダッシュボード
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('company.index')" :active="route().current('company.index')">
                             企業情報
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('resume.create')" :active="route().current('resume.create')">
                             履歴書作成
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('interview.index')" :active="route().current('interview.index')">
+                            面接
                         </ResponsiveNavLink>
                     </div>
 
@@ -139,9 +145,9 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('profile.edit')"> Profile </ResponsiveNavLink>
+                            <ResponsiveNavLink :href="route('profile.edit')"> プロフィール </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('logout')" method="post" as="button">
-                                Log Out
+                                ログアウト
                             </ResponsiveNavLink>
                         </div>
                     </div>

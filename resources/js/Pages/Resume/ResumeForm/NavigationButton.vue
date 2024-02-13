@@ -11,7 +11,7 @@
             <i class="fa-solid fa-angles-left mr-2"></i>戻る
         </button>
         <span v-else></span>
-        <button v-show="currentPage !== 11" class="text-white bg-indigo-500 border-0 px-3 py-2 focus:outline-none hover:bg-indigo-600 rounded" @click="nextCurrentPage()">
+        <button v-show="currentPage !== 10" class="text-white bg-indigo-500 border-0 px-3 py-2 focus:outline-none hover:bg-indigo-600 rounded" @click="nextCurrentPage()">
             次へ<i class="fa-solid fa-angles-right ml-2"></i>
         </button>
     </div>

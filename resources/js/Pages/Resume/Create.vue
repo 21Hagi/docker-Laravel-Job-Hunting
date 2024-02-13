@@ -3,6 +3,7 @@
     import { ref, reactive } from 'vue';
     import { Inertia } from '@inertiajs/inertia';
     import { getToday } from '@/common';
+    import { Head } from '@inertiajs/vue3';
     import Stepper from './ResumeForm/Stepper.vue';
     import Profile from './ResumeForm/Profile.vue';
     import Address from './ResumeForm/Address.vue';
@@ -14,12 +15,11 @@
     import Reason from './ResumeForm/Reason.vue';
     import Requests from './ResumeForm/Requests.vue';
     import CreateDate from './ResumeForm/CreateDate.vue';
-    import Confirm from './ResumeForm/Confirm.vue';
     import NavigationButton from './ResumeForm/NavigationButton.vue';
 
     const components = {
         Stepper, Profile, Address, Contact, Photo, EduHistory, JobHistory,
-        License, Reason, Requests, CreateDate, Confirm, NavigationButton
+        License, Reason, Requests, CreateDate, NavigationButton
     };
 
     let currentPage = ref(1);
@@ -55,24 +55,24 @@
         photoForm: reactive({ photo: null }),
 
         eduHistoryForm: reactive({
-            edu_history1_year: null, edu_history1_month: null, edu_history1: null, edu_history2_year: null, edu_history2_month: null, edu_history2: null,
-            edu_history3_year: null, edu_history3_month: null, edu_history3: null, edu_history4_year: null, edu_history4_month: null, edu_history4: null,
-            edu_history5_year: null, edu_history5_month: null, edu_history5: null, edu_history6_year: null, edu_history6_month: null, edu_history6: null,
-            edu_history7_year: null, edu_history7_month: null, edu_history7: null, edu_history8_year: null, edu_history8_month: null, edu_history8: null,
-            edu_history9_year: null, edu_history9_month: null, edu_history9: null, edu_history10_year: null, edu_history10_month: null, edu_history10: null,
+            edu_history1: { year: null, month: null, history: null }, edu_history2: { year: null, month: null, history: null },
+            edu_history3: { year: null, month: null, history: null }, edu_history4: { year: null, month: null, history: null },
+            edu_history5: { year: null, month: null, history: null }, edu_history6: { year: null, month: null, history: null },
+            edu_history7: { year: null, month: null, history: null }, edu_history8: { year: null, month: null, history: null },
+            edu_history9: { year: null, month: null, history: null }, edu_history10: { year: null, month: null, history: null },
         }),
 
         jobHistoryForm: reactive({
-            job_history1_year: null, job_history1_month: null, job_history1: null, job_history2_year: null, job_history2_month: null, job_history2: null,
-            job_history3_year: null, job_history3_month: null, job_history3: null, job_history4_year: null, job_history4_month: null, job_history4: null,
-            job_history5_year: null, job_history5_month: null, job_history5: null, job_history6_year: null, job_history6_month: null, job_history6: null,
-            job_history7_year: null, job_history7_month: null, job_history7: null, job_history8_year: null, job_history8_month: null, job_history8: null,
-            job_history9_year: null, job_history9_month: null, job_history9: null, job_history10_year: null, job_history10_month: null, job_history10: null,
+            job_history1: { year: null, month: null, history: null }, job_history2: { year: null, month: null, history: null },
+            job_history3: { year: null, month: null, history: null }, job_history4: { year: null, month: null, history: null },
+            job_history5: { year: null, month: null, history: null }, job_history6: { year: null, month: null, history: null },
+            job_history7: { year: null, month: null, history: null }, job_history8: { year: null, month: null, history: null },
+            job_history9: { year: null, month: null, history: null }, job_history10: { year: null, month: null, history: null },
         }),
 
         licenseForm: reactive({
-            license1_year: null, license1_month: null, license1: null, license2_year: null, license2_month: null, license2: null,
-            license3_year: null, license3_month: null, license3: null, license4_year: null, license4_month: null, license4: null,
+            license1: { year: null, month: null, license: null }, license2: { year: null, month: null, license: null },
+            license3: { year: null, month: null, license: null }, license4: { year: null, month: null, license: null },
         }),
 
         reasonForm: reactive({ reason: null }),
@@ -83,11 +83,21 @@
     }
 
     const createPdf = () => {
-        Inertia.post('/resume', allFormData)
+        Inertia.post('/resume', allFormData, {
+            onSuccess: (page) => {
+                if (page.props.fileName) {
+                    Inertia.replace('/resume/create', { preserveState: true });
+                    const url = `/resume/${page.props.fileName}`;
+                    window.open(url, '_blank');
+                }
+            }
+        });
     }
 </script>
 
 <template>
+    <Head title="履歴書作成" />
+
     <AuthenticatedLayout>
         <template #header>
             <div class="flex justify-between">
@@ -111,7 +121,6 @@
                         <Reason v-else-if="currentPage === 8" :formData="allFormData.reasonForm" />
                         <Requests v-else-if="currentPage === 9" :formData="allFormData.requestsForm" />
                         <CreateDate v-else-if="currentPage === 10" :formData="allFormData.createDateForm" />
-                        <Confirm v-else-if="currentPage === 11" :formData="allFormData" :checkCurrentPage="checkCurrentPage" @currentPageChanged="handleCurrentPageChanged" />
                         <NavigationButton :currentPage="currentPage" :prevCurrentPage="prevCurrentPage" :nextCurrentPage="nextCurrentPage" />
                     </div>
                 </div>

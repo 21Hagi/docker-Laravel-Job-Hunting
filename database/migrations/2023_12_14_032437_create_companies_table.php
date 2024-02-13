@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->integer('num_of_hires')->nullable()->comment('採用人数');
             $table->float('turnover_rate')->nullable()->comment('離職率');
-            $table->float('paid_holidays_rate')->nullable()->comment('有給取得率');
+            $table->float('paid_holidays')->nullable()->comment('有給取得（年平均）');
             $table->integer('annual_income')->nullable()->comment('平均年収');
             $table->float('work_overtime')->nullable()->comment('残業（月）');
             $table->float('starting_salary')->nullable()->comment('初任給');

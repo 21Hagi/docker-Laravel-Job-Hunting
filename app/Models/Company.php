@@ -22,6 +22,8 @@ class Company extends Model
     {
         $companies = self::user()
         ->searchKeyword($keyword)
+        ->orderBy('updated_at', 'desc')
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return $companies;

@@ -217,7 +217,7 @@ return [
         'national_code' => '国コード',
         'number' => '番号',
         'num_of_hires' => '採用人数',
-        'paid_holidays_rate' => '有給取得率',
+        'paid_holidays' => '有給取得（年平均）',
         'password' => 'パスワード',
         'password_confirmation' => '確認用パスワード',
         'phone' => '電話番号',

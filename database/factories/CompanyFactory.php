@@ -22,7 +22,7 @@ class CompanyFactory extends Factory
             'email' => $this->faker->companyEmail,
             'num_of_hires' => $this->faker->numberBetween(1, 500),
             'turnover_rate' => $this->faker->randomFloat(1, 0, 100),
-            'paid_holidays_rate' => $this->faker->randomFloat(1, 0, 100),
+            'paid_holidays' => $this->faker->randomFloat(1, 0, 100),
             'annual_income' => $this->faker->numberBetween(200, 1500),
             'work_overtime' => $this->faker->randomFloat(1, 0, 100),
             'starting_salary' => $this->faker->numberBetween(15, 50),

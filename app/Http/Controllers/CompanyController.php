@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Http\Requests\CompanyRequest;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CompanyController extends Controller
@@ -43,7 +42,7 @@ class CompanyController extends Controller
     /**
      * 企業情報を追加
      *
-     * @param StoreCompanyRequest $request
+     * @param CompanyRequest $request
      * @return void
      */
     public function store(CompanyRequest $request)
@@ -97,10 +96,17 @@ class CompanyController extends Controller
         // 企業情報を更新
         $this->company->updateCompanyData($request, $company);
 
-        return to_route('company.index');
+        return Inertia::render('Company/Show', [
+            'company' => $company
+        ]);
     }
 
-
+    /**
+     * 企業情報を削除
+     *
+     * @param Company $company
+     * @return void
+     */
     public function destroy(Company $company)
     {
         $company->delete();

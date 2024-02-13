@@ -1,9 +1,8 @@
 <script setup>
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-    import { Head } from '@inertiajs/vue3';
+    import { Head, Link } from '@inertiajs/vue3';
     import { ref } from 'vue';
     import { Inertia } from '@inertiajs/inertia';
-    import { Link } from '@inertiajs/inertia-vue3';
     import Pagination from '@/Components/Pagination.vue';
     import FlashMessage from '@/Components/FlashMessage.vue';
 
@@ -88,6 +87,14 @@
                                                 <th scope="col" class="px-6 py-3 text-left">
                                                     <div class="flex items-center gap-x-2">
                                                         <span class="text-xm font-semibold tracking-wide text-gray-800">
+                                                            初任給
+                                                        </span>
+                                                    </div>
+                                                </th>
+
+                                                <th scope="col" class="px-6 py-3 text-left">
+                                                    <div class="flex items-center gap-x-2">
+                                                        <span class="text-xm font-semibold tracking-wide text-gray-800">
                                                             離職率
                                                         </span>
                                                     </div>
@@ -96,18 +103,11 @@
                                                 <th scope="col" class="px-6 py-3 text-left">
                                                     <div class="flex items-center gap-x-2">
                                                         <span class="text-xm font-semibold tracking-wide text-gray-800">
-                                                            有給取得率
+                                                            残業時間（月）
                                                         </span>
                                                     </div>
                                                 </th>
 
-                                                <th scope="col" class="px-6 py-3 text-left">
-                                                    <div class="flex items-center gap-x-2">
-                                                        <span class="text-xm font-semibold tracking-wide text-gray-800">
-                                                            平均年収
-                                                        </span>
-                                                    </div>
-                                                </th>
                                                 <th scope="col" class="px-6 py-3 text-right"></th>
                                             </tr>
                                         </thead>
@@ -123,6 +123,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
+
                                                 <td class="whitespace-nowrap">
                                                     <div class="px-6 py-3">
                                                         <span class="block text-xm text-gray-800">
@@ -130,6 +131,15 @@
                                                         </span>
                                                     </div>
                                                 </td>
+
+                                                <td class="whitespace-nowrap">
+                                                    <div class="px-6 py-3">
+                                                        <span class="text-xm text-gray-800">
+                                                            {{ company.starting_salary ? company.starting_salary + '万円' : ''}}
+                                                        </span>
+                                                    </div>
+                                                </td>
+
                                                 <td class="whitespace-nowrap">
                                                     <div class="px-6 py-3">
                                                         <span class="text-xm text-gray-800">
@@ -141,16 +151,9 @@
                                                     <div class="px-6 py-3">
                                                         <div class="flex items-center gap-x-3">
                                                             <span class="text-xm text-gray-800">
-                                                                {{ company.paid_holidays_rate ? company.paid_holidays_rate + '%' : ''}}
+                                                                {{ company.work_overtime ? company.work_overtime + '時間' : ''}}
                                                             </span>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="whitespace-nowrap">
-                                                    <div class="px-6 py-3">
-                                                        <span class="text-xm text-gray-800">
-                                                            {{ company.annual_income ? company.annual_income + '万円' : ''}}
-                                                        </span>
                                                     </div>
                                                 </td>
                                                 <td class="whitespace-nowrap">

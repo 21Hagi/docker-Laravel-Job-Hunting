@@ -42,24 +42,17 @@
                             </div>
 
                             <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
+                                <p class="text-sl text-gray-600">初任給</p>
+                                <p class="text-lg font-medium text-navy-700">
+                                    {{ company.starting_salary ? company.starting_salary + '万円' : 'ー'}}
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
                                 <p class="text-sl text-gray-600">離職率</p>
                                 <p class="text-lg font-medium text-navy-700">
                                     {{ company.turnover_rate ? company.turnover_rate + '%' : 'ー' }}
                                 </p> 
-                            </div>
-
-                            <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
-                                <p class="text-sl text-gray-600">有給取得率</p>
-                                <p class="text-lg font-medium text-navy-700">
-                                    {{ company.paid_holidays ? company.paid_holidays + '%' : 'ー'}}
-                                </p>
-                            </div>
-
-                            <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
-                                <p class="text-sl text-gray-600">平均年収</p>
-                                <p class="text-lg font-medium text-navy-700">
-                                    {{ company.annual_income ? company.annual_income + '万円' : 'ー'}}
-                                </p>
                             </div>
 
                             <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
@@ -70,9 +63,16 @@
                             </div>
 
                             <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
-                                <p class="text-sl text-gray-600">初任給</p>
+                                <p class="text-sl text-gray-600">有給取得（年平均）</p>
                                 <p class="text-lg font-medium text-navy-700">
-                                    {{ company.starting_salary ? company.starting_salary + '万円' : 'ー'}}
+                                    {{ company.paid_holidays ? company.paid_holidays + '日' : 'ー'}}
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
+                                <p class="text-sl text-gray-600">平均年収</p>
+                                <p class="text-lg font-medium text-navy-700">
+                                    {{ company.annual_income ? company.annual_income + '万円' : 'ー'}}
                                 </p>
                             </div>
 
@@ -87,7 +87,7 @@
                             <div class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500">
                                 <p class="text-sl text-gray-600 px-5">メモ</p>
                                 <div class="text-lg text-navy-700 px-5">
-                                    <span v-if="company.memo" v-html="company.memo.replace(/\n/g,'<br/>')"></span>
+                                    <span v-if="company.memo" class="whitespace-pre-wrap"></span>
                                     <span v-else>ー</span>
                                 </div>
                             </div>

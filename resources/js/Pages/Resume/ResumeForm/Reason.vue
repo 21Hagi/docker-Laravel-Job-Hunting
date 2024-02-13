@@ -24,7 +24,7 @@
                             </p>
                         </th>
                         <td class="p-4">
-                            <textarea type="text" id="reason" name="reason" v-model="props.formData.reason" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out min-h-[120px]"></textarea>
+                            <textarea type="text" id="reason" name="reason" v-model="props.formData.reason" class="w-[575px] h-60 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out resize-none"></textarea>
                         </td>
                     </tr>
                 </tbody>
