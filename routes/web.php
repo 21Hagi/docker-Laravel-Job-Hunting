@@ -45,4 +45,8 @@ Route::middleware('rejectGuest')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+if (config('app.env') === 'production') {
+    URL::forceScheme('https');
+}
+
 require __DIR__.'/auth.php';
