@@ -5,6 +5,7 @@ namespace App\Services;
 use setasign\Fpdi\Tcpdf\Fpdi;
 use Intervention\Image\ImageManager;
 use TCPDF_FONTS;
+use Illuminate\Support\Facades\File;
 
 class exportResumeService
 {
@@ -474,7 +475,7 @@ class exportResumeService
         if (!File::exists($directoryPath)) {
             File::makeDirectory($directoryPath, 0775, true);
         }
-        
+
         $path = storage_path('app/private/' . $fileName);
         $this->fpdi->output($path, 'F');
     
