@@ -42,6 +42,7 @@ class ResumeController extends Controller
         $exportResumeService = new exportResumeService($request);
 
         $fileName = $exportResumeService->exportResume();
+        dd('a');
 
         return Inertia::render('Resume/Create', ['fileName' => $fileName]);
     }
@@ -67,7 +68,7 @@ class ResumeController extends Controller
         if (!File::exists($filePath)) {
             abort(404);
         }
-
+        dd('b');
         return Response::file($filePath)->deleteFileAfterSend(true);
     }
 }

@@ -98,13 +98,12 @@ const guestSubmit = () => {
                 </PrimaryButton>
             </div>
         </form>
-        <form @submit.prevent="guestSubmit">
+        <!-- <form @submit.prevent="guestSubmit">
             <div class="flex justify-end">
                 <button type="button" @click="guestSubmit" class="mt-3 underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-5">
                     ゲストログインする
                 </button>
             </div>
-
-        </form>
+        </form> -->
     </GuestLayout>
 </template>
