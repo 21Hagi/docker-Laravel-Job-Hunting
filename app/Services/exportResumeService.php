@@ -4,6 +4,7 @@ namespace App\Services;
 
 use setasign\Fpdi\Tcpdf\Fpdi;
 use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use TCPDF_FONTS;
 use Illuminate\Support\Facades\File;
 
@@ -172,28 +173,23 @@ class exportResumeService
     private function setIdPhoto() 
     {
         $photo = $this->request->photoForm['photo'];
+        $manager = new ImageManager(new Driver());
 
         if (!empty($photo)) {
-            $base64_image = preg_replace('#^data:image/\w+;base64,#i', '', $photo);
-            $base64_image = str_replace(' ', '+', $base64_image);
-            $image_data = base64_decode($base64_image);
-            
-            $image = imagecreatefromstring($image_data);
-            
-            $width = 420;
-            $height = 560;
-            $resizedImage = imagecreatetruecolor($width, $height);
-            imagecopyresampled($resizedImage, $image, 0, 0, 0, 0, $width, $height, imagesx($image), imagesy($image));
-            
+            $photo = preg_replace('#^data:image/\w+;base64,#i', '', $photo);
+            $photo = str_replace(' ', '+', $photo);
+            $image_data = base64_decode($photo);
+
+            $image = $manager->imagick()->read($image_data);
+            $image->resize(420, 560);
+
             $idPhoto_path = 'idPhoto.jpg';
-            imagejpeg($resizedImage, $idPhoto_path);
-            
+            $image->save($idPhoto_path);
+
             $this->setImage($idPhoto_path, 144.5, 29.5, 28.5, 38);
-            
+
             unlink($idPhoto_path);
-            
-            imagedestroy($image);
-            imagedestroy($resizedImage);
+    
         }
     }
 
