@@ -62,11 +62,6 @@ class ResumeController extends Controller
             abort(403);
         }
 
-        $directoryPath = storage_path('app/private');
-        if (!File::exists($directoryPath)) {
-            File::makeDirectory($directoryPath, 0775, true);
-        }
-
         $filePath = storage_path('app/private/' . $fileName);
 
         if (!File::exists($filePath)) {

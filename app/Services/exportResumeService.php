@@ -469,6 +469,12 @@ class exportResumeService
         $this->setSecondPage();
 
         $fileName = auth()->id() . '_resume.pdf';
+
+        $directoryPath = storage_path('app/private');
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0775, true);
+        }
+        
         $path = storage_path('app/private/' . $fileName);
         $this->fpdi->output($path, 'F');
     
