@@ -177,16 +177,23 @@ class exportResumeService
             $base64_image = preg_replace('#^data:image/\w+;base64,#i', '', $photo);
             $base64_image = str_replace(' ', '+', $base64_image);
             $image_data = base64_decode($base64_image);
-
-            $image = ImageManager::imagick()->read($image_data);
-            $image->resize(420, 560);
-
+            
+            $image = imagecreatefromstring($image_data);
+            
+            $width = 420;
+            $height = 560;
+            $resizedImage = imagecreatetruecolor($width, $height);
+            imagecopyresampled($resizedImage, $image, 0, 0, 0, 0, $width, $height, imagesx($image), imagesy($image));
+            
             $idPhoto_path = 'idPhoto.jpg';
-            $image->save($idPhoto_path);
-
+            imagejpeg($resizedImage, $idPhoto_path);
+            
             $this->setImage($idPhoto_path, 144.5, 29.5, 28.5, 38);
-
+            
             unlink($idPhoto_path);
+            
+            imagedestroy($image);
+            imagedestroy($resizedImage);
         }
     }
 
