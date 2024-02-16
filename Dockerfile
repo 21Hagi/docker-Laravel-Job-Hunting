@@ -10,6 +10,11 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && docker-php-ext-install pdo_pgsql mbstring
 
+# gdのインストール
+RUN apt-get update &&\
+    apt-get install -y zlib1g-dev libpng-dev &&\
+    docker-php-ext-install -j$(nproc) gd
+
 # Composerのインストール
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
