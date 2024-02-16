@@ -13,7 +13,7 @@ Route::resource('company', CompanyController::class)
     ->middleware(['auth', 'verified']);
 
 Route::resource('resume', ResumeController::class)
-    ->only(['create', 'store', 'show'])
+    ->except(['edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
 Route::resource('interview', InterviewController::class)

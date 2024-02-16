@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\Response;
 class ResumeController extends Controller
 {   
     /**
+     * 履歴書作成画面にリダイレクト
+     *
+     * @return void
+     */
+    public function index()
+    {
+        return Inertia::render('Resume/Create');
+    }
+
+    /**
      * 履歴書の作成画面を表示
      *
      * @return void

@@ -4,14 +4,14 @@ namespace App\Services;
 
 use setasign\Fpdi\Tcpdf\Fpdi;
 use Intervention\Image\ImageManager;
+use TCPDF_FONTS;
 
 class exportResumeService
 {
     private $fpdi;
     private $request;
     private $jobHistoryCount;
-
-    const PDF_FONT = 'msmincho';
+    private $pdfFont;
 
     /**
      * コンストラクタ
@@ -20,6 +20,7 @@ class exportResumeService
     {
         $this->fpdi = new Fpdi();
         $this->request = $request;
+        $this->pdfFont = TCPDF_FONTS::addTTFfont('../resources/fonts/msmincho.ttf', 'TrueTypeUnicode');
         $this->initializePdf();
     }
 
@@ -48,13 +49,13 @@ class exportResumeService
      */
     private function setText($size, $x, $y, $text)
     {
-        $this->fpdi->SetFont(self::PDF_FONT, '', $size);
+        $this->fpdi->SetFont($this->pdfFont, '', $size);
         $this->fpdi->Text($x, $y, $text);
     }
 
     private function setMultiCell($size, $width, $height, $x, $y, $text)
     {
-        $this->fpdi->SetFont(self::PDF_FONT, '', $size);
+        $this->fpdi->SetFont($this->pdfFont, '', $size);
         $this->fpdi->MultiCell($width, $height, $text, 0, 'L', 0, 0, $x, $y);
     }
 
