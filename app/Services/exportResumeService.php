@@ -173,14 +173,13 @@ class exportResumeService
     private function setIdPhoto() 
     {
         $photo = $this->request->photoForm['photo'];
-        $manager = new ImageManager(new Driver());
 
         if (!empty($photo)) {
             $photo = preg_replace('#^data:image/\w+;base64,#i', '', $photo);
             $photo = str_replace(' ', '+', $photo);
             $image_data = base64_decode($photo);
 
-            $image = $manager->imagick()->read($image_data);
+            $image = ImageManager::gd()->read($image_data);
             $image->resize(420, 560);
 
             $idPhoto_path = 'idPhoto.jpg';
@@ -189,7 +188,6 @@ class exportResumeService
             $this->setImage($idPhoto_path, 144.5, 29.5, 28.5, 38);
 
             unlink($idPhoto_path);
-    
         }
     }
 
