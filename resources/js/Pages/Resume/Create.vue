@@ -36,43 +36,77 @@
     const nextCurrentPage = () => currentPage.value++;
     const prevCurrentPage = () => currentPage.value--;
 
+    const props = defineProps({
+        resumeData: Object,
+    })
+
+    const profileData = props.resumeData.profileData || {};
+    const addressData = props.resumeData.addressData || {};
+    const contactData = props.resumeData.contactData || {};
+    const eduHistoryData = props.resumeData.eduHistoryData || {};
+    const jobHistoryData = props.resumeData.jobHistoryData || {};
+    const licenseData = props.resumeData.licenseData || {};
+
     const allFormData = {
         profileForm: reactive({
-            kanji_last_name: null, kanji_first_name: null, furigana_last_name: null, furigana_first_name: null, 
-            birth_year: null, birth_month: null, birth_day: null, age: null, gender: '',
+            kanji_last_name: profileData.kanji_last_name ?? '', 
+            kanji_first_name: profileData.kanji_first_name ?? '', 
+            furigana_last_name: profileData.furigana_last_name ?? '', 
+            furigana_first_name: profileData.furigana_first_name ?? '', 
+            birth_year: profileData.birth_year ?? '', 
+            birth_month: profileData.birth_month ?? '', 
+            birth_day: profileData.birth_day ?? '', 
+            age: profileData.age ?? '', 
+            gender: profileData.gender ?? '',
         }),
 
         addressForm: reactive({
-            zip_code1: null, address1: null, building_name1: null, address1_furigana: null, 
-            zip_code2: null, address2: null, building_name2: null, address2_furigana: null, 
+            zip_code1: addressData.zip_code1 ?? '', address1: addressData.address1 ?? '', 
+            building_name1: addressData.building_name1 ?? '', address1_furigana: addressData.address1_furigana ?? '', 
+            zip_code2: addressData.zip_code2 ?? '', address2: addressData.address2 ?? '', 
+            building_name2: addressData.building_name2 ?? '', address2_furigana: addressData.address2_furigana ?? '', 
         }),
 
         contactForm: reactive({
-            phone_number1: null, phone_number2: null, phone_number3: null, email: null,
-            other_phone_number1: null, other_phone_number2: null, other_phone_number3: null, other_email: null,
+            phone_number1: contactData.phone_number1 ?? '', phone_number2: contactData.phone_number2 ?? '', 
+            phone_number3: contactData.phone_number3 ?? '', email: contactData.email ?? '',
+            other_phone_number1: contactData.other_phone_number1 ?? '', other_phone_number2: contactData.other_phone_number2 ?? '', 
+            other_phone_number3: contactData.other_phone_number3 ?? '', other_email: contactData.other_email ?? '',
         }),
 
         photoForm: reactive({ photo: null }),
 
         eduHistoryForm: reactive({
-            edu_history1: { year: null, month: null, history: null }, edu_history2: { year: null, month: null, history: null },
-            edu_history3: { year: null, month: null, history: null }, edu_history4: { year: null, month: null, history: null },
-            edu_history5: { year: null, month: null, history: null }, edu_history6: { year: null, month: null, history: null },
-            edu_history7: { year: null, month: null, history: null }, edu_history8: { year: null, month: null, history: null },
-            edu_history9: { year: null, month: null, history: null }, edu_history10: { year: null, month: null, history: null },
+            edu_history1: { year: eduHistoryData.edu_history1_year ?? '', month: eduHistoryData.edu_history1_month ?? '', history: eduHistoryData.edu_history1_history ?? '' },
+            edu_history2: { year: eduHistoryData.edu_history2_year ?? '', month: eduHistoryData.edu_history2_month ?? '', history: eduHistoryData.edu_history2_history ?? '' }, 
+            edu_history3: { year: eduHistoryData.edu_history3_year ?? '', month: eduHistoryData.edu_history3_month ?? '', history: eduHistoryData.edu_history3_history ?? '' }, 
+            edu_history4: { year: eduHistoryData.edu_history4_year ?? '', month: eduHistoryData.edu_history4_month ?? '', history: eduHistoryData.edu_history4_history ?? '' }, 
+            edu_history5: { year: eduHistoryData.edu_history5_year ?? '', month: eduHistoryData.edu_history5_month ?? '', history: eduHistoryData.edu_history5_history ?? '' }, 
+            edu_history6: { year: eduHistoryData.edu_history6_year ?? '', month: eduHistoryData.edu_history6_month ?? '', history: eduHistoryData.edu_history6_history ?? '' }, 
+            edu_history7: { year: eduHistoryData.edu_history7_year ?? '', month: eduHistoryData.edu_history7_month ?? '', history: eduHistoryData.edu_history7_history ?? '' }, 
+            edu_history8: { year: eduHistoryData.edu_history8_year ?? '', month: eduHistoryData.edu_history8_month ?? '', history: eduHistoryData.edu_history8_history ?? '' }, 
+            edu_history9: { year: eduHistoryData.edu_history9_year ?? '', month: eduHistoryData.edu_history9_month ?? '', history: eduHistoryData.edu_history9_history ?? '' }, 
+            edu_history10: { year: eduHistoryData.edu_history10_year ?? '', month: eduHistoryData.edu_history10_month ?? '', history: eduHistoryData.edu_history10_history ?? '' },  
         }),
 
         jobHistoryForm: reactive({
-            job_history1: { year: null, month: null, history: null }, job_history2: { year: null, month: null, history: null },
-            job_history3: { year: null, month: null, history: null }, job_history4: { year: null, month: null, history: null },
-            job_history5: { year: null, month: null, history: null }, job_history6: { year: null, month: null, history: null },
-            job_history7: { year: null, month: null, history: null }, job_history8: { year: null, month: null, history: null },
-            job_history9: { year: null, month: null, history: null }, job_history10: { year: null, month: null, history: null },
+            job_history1: { year: jobHistoryData.job_history1_year ?? '', month: jobHistoryData.job_history1_month ?? '', history: jobHistoryData.job_history1_history ?? '' },
+            job_history2: { year: jobHistoryData.job_history2_year ?? '', month: jobHistoryData.job_history2_month ?? '', history: jobHistoryData.job_history2_history ?? '' }, 
+            job_history3: { year: jobHistoryData.job_history3_year ?? '', month: jobHistoryData.job_history3_month ?? '', history: jobHistoryData.job_history3_history ?? '' }, 
+            job_history4: { year: jobHistoryData.job_history4_year ?? '', month: jobHistoryData.job_history4_month ?? '', history: jobHistoryData.job_history4_history ?? '' }, 
+            job_history5: { year: jobHistoryData.job_history5_year ?? '', month: jobHistoryData.job_history5_month ?? '', history: jobHistoryData.job_history5_history ?? '' }, 
+            job_history6: { year: jobHistoryData.job_history6_year ?? '', month: jobHistoryData.job_history6_month ?? '', history: jobHistoryData.job_history6_history ?? '' }, 
+            job_history7: { year: jobHistoryData.job_history7_year ?? '', month: jobHistoryData.job_history7_month ?? '', history: jobHistoryData.job_history7_history ?? '' }, 
+            job_history8: { year: jobHistoryData.job_history8_year ?? '', month: jobHistoryData.job_history8_month ?? '', history: jobHistoryData.job_history8_history ?? '' }, 
+            job_history9: { year: jobHistoryData.job_history9_year ?? '', month: jobHistoryData.job_history9_month ?? '', history: jobHistoryData.job_history9_history ?? '' }, 
+            job_history10: { year: jobHistoryData.job_history10_year ?? '', month: jobHistoryData.job_history10_month ?? '', history: jobHistoryData.job_history10_history ?? '' }, 
         }),
 
         licenseForm: reactive({
-            license1: { year: null, month: null, license: null }, license2: { year: null, month: null, license: null },
-            license3: { year: null, month: null, license: null }, license4: { year: null, month: null, license: null },
+            license1: { year: licenseData.license1_year ?? '', month: licenseData.license1_month ?? '', license: licenseData.license1_license ?? '' }, 
+            license2: { year: licenseData.license2_year ?? '', month: licenseData.license2_month ?? '', license: licenseData.license2_license ?? '' },
+            license3: { year: licenseData.license3_year ?? '', month: licenseData.license3_month ?? '', license: licenseData.license3_license ?? '' }, 
+            license4: { year: licenseData.license4_year ?? '', month: licenseData.license4_month ?? '', license: licenseData.license4_license ?? '' },
         }),
 
         reasonForm: reactive({ reason: null }),
@@ -93,6 +127,7 @@
             }
         });
     }
+
 </script>
 
 <template>

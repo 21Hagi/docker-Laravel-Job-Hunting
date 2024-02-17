@@ -9,6 +9,12 @@
     const showOtherContactForm = () => {
         otherContactForm.isFormVisible = !otherContactForm.isFormVisible;
     };
+
+    const clearFormData = () => {
+        Object.keys(props.formData).forEach(key => {
+            props.formData[key] = '';
+        });
+    };
 </script>
 <template>
      <section class="text-gray-600 body-font">
@@ -16,8 +22,9 @@
             <table class="w-full text-left table-auto min-w-max">
                 <tbody>
                     <tr>
-                        <td class="p-4 border-b border-gray-200 bg-blue-gray-100">
+                        <td class="p-4 border-b border-gray-200 bg-blue-gray-100 flex justify-between">
                             <span class="font-bold text-lg">連絡先</span>
+                            <button class="text-sm hover:underline" @click="clearFormData"><i class="fa-solid fa-xmark mr-1"></i>リセットする</button>
                         </td>
                     </tr>
                 </tbody>

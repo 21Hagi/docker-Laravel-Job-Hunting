@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Http\Requests\ResumeRequest;
+use App\Services\resumeService;
 use App\Services\exportResumeService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -28,7 +29,11 @@ class ResumeController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Resume/Create');
+        $userId = Auth::id();
+        $resumeService = new resumeService();
+        $resumeData = $resumeService->getResumeDataByUserId($userId);
+
+        return Inertia::render('Resume/Create', ['resumeData' => $resumeData]);
     }
 
     /**
@@ -39,8 +44,11 @@ class ResumeController extends Controller
      */
     public function store(ResumeRequest $request)
     {
-        $exportResumeService = new exportResumeService($request);
+        $userId = Auth::id();
+        $resumeService = new resumeService();
+        $resumeService->updateOrCreateResumeData($request, $userId);
 
+        $exportResumeService = new exportResumeService($request);
         $fileName = $exportResumeService->exportResume();
 
         return Inertia::render('Resume/Create', ['fileName' => $fileName]);

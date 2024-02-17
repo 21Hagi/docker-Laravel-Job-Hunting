@@ -12,8 +12,8 @@
     const recordingStopButtonVisible = ref(false);
 
     const props = defineProps({
-        interviews: Object,
-        interviewsSetup: Object
+        interviews: { type:Object, default:null },
+        interviewsSetup: { type:Object, default:null },
     });
 
     const startRecording = () => {

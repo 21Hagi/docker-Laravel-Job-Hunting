@@ -338,7 +338,6 @@ class exportResumeService
     {
         $fontSize = 11.5;
         $yearX = 24;
-        $monthX = 40.6;
         $historyX = 50;
         $y = 142.7;
         $lineCount = 1;
@@ -350,6 +349,12 @@ class exportResumeService
             // 2行目以降(学歴)
             foreach ($this->request->eduHistoryForm as $eduHistory) {
                 if (empty($eduHistory['history'])) break;
+
+                if ($eduHistory['month'] >= 10 && $eduHistory['month'] <= 12) {
+                    $monthX = 39.7;
+                } else {
+                    $monthX = 40.6;
+                }
 
                 $this->setText($fontSize, $yearX, $y, $eduHistory['year']);
                 $this->setText($fontSize, $monthX, $y, $eduHistory['month']);
@@ -371,6 +376,12 @@ class exportResumeService
             $this->jobHistoryCount = 0;
             foreach ($this->request->jobHistoryForm as $jobHistory) {
                 if (empty($jobHistory['history']) || $lineCount == 16) break;
+
+                if ($jobHistory['month'] >= 10 && $jobHistory['month'] <= 12) {
+                    $monthX = 39.7;
+                } else {
+                    $monthX = 40.6;
+                }
 
                 $this->setText($fontSize, $yearX, $y, $jobHistory['year']);
                 $this->setText($fontSize, $monthX, $y, $jobHistory['month']);
@@ -395,16 +406,23 @@ class exportResumeService
     {
         $fontSize = 11.5;
         $yearX = 27;
-        $monthX = 43.5;
         $historyX = 53;
         $y = 38;
 
         $jobHistorySecondPage = array_slice($this->request->jobHistoryForm, $this->jobHistoryCount);
 
+        if (!is_array($jobHistorySecondPage) || empty($jobHistorySecondPage)) return false;
+
         if (empty(reset($jobHistorySecondPage)['history'])) return false;
 
         foreach ($jobHistorySecondPage as $jobHistory) {
             if (empty($jobHistory['history'])) break;
+
+            if ($jobHistory['month'] >= 10 && $jobHistory['month'] <= 12) {
+                $monthX = 42.4;
+            } else {
+                $monthX = 43.5;
+            }
 
             $this->setText($fontSize, $yearX, $y, $jobHistory['year']);
             $this->setText($fontSize, $monthX, $y, $jobHistory['month']);
@@ -424,11 +442,18 @@ class exportResumeService
     {
         $fontSize = 12;
         $yearX = 27;
-        $monthX = 43.5;
         $historyX = 53;
         $y = 131.5;
 
         foreach ($this->request->licenseForm as $license) {
+            if (empty($license['license'])) break;
+
+            if ($license['month'] >= 10 && $license['month'] <= 12) {
+                $monthX = 42.4;
+            } else {
+                $monthX = 43.5;
+            }
+
             $this->setText($fontSize, $yearX, $y, $license['year']);
             $this->setText($fontSize, $monthX, $y, $license['month']);
             $this->setText($fontSize, $historyX, $y, $license['license']);
