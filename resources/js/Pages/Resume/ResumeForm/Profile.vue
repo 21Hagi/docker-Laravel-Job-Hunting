@@ -49,19 +49,19 @@
             <table class="w-full text-left min-w-max">
                 <tbody>
                     <tr>
-                        <th class="p-4 border-b border-gray-300 bg-gray-100 rounded-tl-xl w-52">
+                        <th class="p-4 border-b border-gray-300 bg-gray-100 rounded-tl-xl w-52 max-md:w-24">
                             <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900 opacity-70">
                                 氏名
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300 flex">
-                            <div class="flex flex-col mr-4 w-56">
+                            <div class="flex flex-col mr-4 w-56 max-md:w-28">
                                 <label for="kanji_last_name" class="text-sm text-gray-600">姓</label>
-                                <input type="text" id="kanji_last_name" name="kanji_last_name" v-model="props.formData.kanji_last_name" @input="handleLastNameInput" autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" id="kanji_last_name" name="kanji_last_name" v-model="props.formData.kanji_last_name" @input="handleLastNameInput" autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             </div>
-                            <div class="flex flex-col w-56">
+                            <div class="flex flex-col w-56 max-md:w-28">
                                 <label for="kanji_first_name" class="text-sm text-gray-600">名</label>
-                                <input type="text" id="kanji_first_name" name="kanji_first_name" v-model="props.formData.kanji_first_name" @input="handleFirstNameInput" autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" id="kanji_first_name" name="kanji_first_name" v-model="props.formData.kanji_first_name" @input="handleFirstNameInput" autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             </div>
                         </td>
                     </tr>
@@ -72,13 +72,13 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300 flex">
-                            <div class="flex flex-col mr-4 w-56">
+                            <div class="flex flex-col mr-4 w-56 max-md:w-28">
                                 <label for="furigana_last_name" class="text-sm text-gray-600">せい</label>
-                                <input type="text" id="furigana_last_name" name="furigana_last_name" v-model="props.formData.furigana_last_name" autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" id="furigana_last_name" name="furigana_last_name" v-model="props.formData.furigana_last_name" autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             </div>
-                            <div class="flex flex-col w-56">
+                            <div class="flex flex-col w-56 max-md:w-28">
                                 <label for="furigana_first_name" class="text-sm text-gray-600">めい</label>
-                                <input type="text" id="furigana_first_name" name="furigana_first_name" v-model="props.formData.furigana_first_name"  autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <input type="text" id="furigana_first_name" name="furigana_first_name" v-model="props.formData.furigana_first_name"  autocomplete="off" class="bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             </div>
                         </td>
                     </tr>
@@ -89,11 +89,11 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300">
-                            <input type="number" id="birth_year" name="birth_year" v-model="props.formData.birth_year" @input="updateAge" autocomplete="off" class="w-24 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="birth_year" name="birth_year" v-model="props.formData.birth_year" @input="updateAge" autocomplete="off" class="w-24 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             <label for="birth_year" class="text-sm text-gray-600 ml-1 mr-2">年</label>
-                            <input type="number" id="birth_month" name="birth_month" v-model="props.formData.birth_month" @input="updateAge" autocomplete="off" class="w-16 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="birth_month" name="birth_month" v-model="props.formData.birth_month" @input="updateAge" autocomplete="off" class="w-16 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             <label for="birth_month" class="text-sm text-gray-600 ml-1 mr-2">月</label>
-                            <input type="number" id="birth_day" name="birth_day" v-model="props.formData.birth_day" @input="updateAge" autocomplete="off" class="w-16 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="birth_day" name="birth_day" v-model="props.formData.birth_day" @input="updateAge" autocomplete="off" class="w-16 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             <label for="bi_day" class="text-sm text-gray-600 ml-1 mr-2">日</label>
                         </td>
                     </tr>
@@ -104,7 +104,7 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300">
-                            <input type="number" id="age" name="age" v-model="props.formData.age" maxlength="3" autocomplete="off" class="w-16 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="age" name="age" v-model="props.formData.age" maxlength="3" autocomplete="off" class="w-16 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                             <label for="age" class="text-sm text-gray-600 ml-1 mr-2">歳</label>
                         </td>
                     </tr>
@@ -116,11 +116,11 @@
                         </th>
                         <td class="p-4">
                             <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" value="1" name="gender" v-model="props.formData.gender">
-                            <span class="ml-1 mr-3">男性</span>
+                            <span class="ml-1 mr-3 max-md:text-sm">男性</span>
                             <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" value="2" name="gender" v-model="props.formData.gender">
-                            <span class="ml-1 mr-3">女性</span>
+                            <span class="ml-1 mr-3 max-md:text-sm">女性</span>
                             <input type="radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" value="3" name="gender" v-model="props.formData.gender">
-                            <span class="ml-1">指定しない</span>
+                            <span class="ml-1 max-md:text-sm">指定しない</span>
                         </td>
                     </tr>
                 </tbody>

@@ -25,7 +25,6 @@
 
 <template>
     <Head title="企業情報" />
-
     <AuthenticatedLayout>
         <template #header>
             <div class="flex justify-between">
@@ -54,21 +53,21 @@
                     <div class="p-6 text-gray-900">
                         <section class="text-gray-600 body-font">
                             <FlashMessage />
-                            <div class="flex justify-end px-7">
-                                <div class="px-6">
-                                    <Link :href="route('company.create')" class="text-white bg-indigo-500 border-0 px-4 py-2.5 focus:outline-none hover:bg-indigo-600 rounded text-xm right-0"><i class="fa-solid fa-plus pr-1"></i>新規登録</Link>
+                            <div class="flex justify-end px-5 max-sm:px-1">
+                                <div class="px-4 max-sm:px-1">
+                                    <Link :href="route('company.create')" class="text-white bg-indigo-500 border-0 py-2 px-3 sm:px-4 focus:outline-none hover:bg-indigo-600 rounded text-sm sm:text-xm"><i class="fa-solid fa-plus pr-1"></i>新規登録</Link>
                                 </div>
                             </div>
                             <div v-if="companies.data.length === 0" class="text-center space">
                                 <p class="mb-1">企業情報を取得することができませんでした。</p>
                                 <p>新規登録または検索条件を変更してください。</p>
                             </div>
-                            <div v-else class="container md:md:px-5 mx-auto">
-                                <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-5 mx-auto">
+                            <div v-else class="container md:px-5 mx-auto">
+                                <div class="px-4 py-10 mx-auto">
                                     <table class="min-w-full divide-y divide-gray-200 mb-4">
                                         <thead class="bg-gray-100">
                                             <tr>
-                                                <th scope="col" class="pl-8 lg:pl-3 xl:pl-7 pr-6 py-3 text-left min-w-[200px]">
+                                                <th scope="col" class="pl-8 lg:pl-3 xl:pl-7 pr-6 py-3 text-left min-w-[200px] max-sm:min-w-[10px]">
                                                     <div class="flex items-center gap-x-2">
                                                         <span class="text-xm font-semibold tracking-wide text-gray-800">
                                                             企業名
@@ -78,7 +77,7 @@
 
                                                 <th scope="col" class="px-6 py-3 text-left">
                                                     <div class="flex items-center gap-x-2">
-                                                        <span class="text-xm font-semibold tracking-wide text-gray-800">
+                                                        <span class="text-xm font-semibold tracking-wide text-gray-800 max-lg:hidden">
                                                             採用人数
                                                         </span>
                                                     </div>
@@ -86,7 +85,7 @@
 
                                                 <th scope="col" class="px-6 py-3 text-left">
                                                     <div class="flex items-center gap-x-2">
-                                                        <span class="text-xm font-semibold tracking-wide text-gray-800">
+                                                        <span class="text-xm font-semibold tracking-wide text-gray-800 max-lg:hidden">
                                                             初任給
                                                         </span>
                                                     </div>
@@ -94,7 +93,7 @@
 
                                                 <th scope="col" class="px-6 py-3 text-left">
                                                     <div class="flex items-center gap-x-2">
-                                                        <span class="text-xm font-semibold tracking-wide text-gray-800">
+                                                        <span class="text-xm font-semibold tracking-wide text-gray-800 max-lg:hidden">
                                                             離職率
                                                         </span>
                                                     </div>
@@ -102,13 +101,13 @@
 
                                                 <th scope="col" class="px-6 py-3 text-left">
                                                     <div class="flex items-center gap-x-2">
-                                                        <span class="text-xm font-semibold tracking-wide text-gray-800">
+                                                        <span class="text-xm font-semibold tracking-wide text-gray-800 max-lg:hidden">
                                                             残業時間（月）
                                                         </span>
                                                     </div>
                                                 </th>
 
-                                                <th scope="col" class="px-6 py-3 text-right"></th>
+                                                <th scope="col" class="px-6 py-3 text-right max-md:px-3"></th>
                                             </tr>
                                         </thead>
                                                 
@@ -126,7 +125,7 @@
 
                                                 <td class="whitespace-nowrap">
                                                     <div class="px-6 py-3">
-                                                        <span class="block text-xm text-gray-800">
+                                                        <span class="block text-xm text-gray-800 max-lg:hidden">
                                                             {{ company.num_of_hires ? company.num_of_hires + '名' : '' }}
                                                         </span>
                                                     </div>
@@ -134,7 +133,7 @@
 
                                                 <td class="whitespace-nowrap">
                                                     <div class="px-6 py-3">
-                                                        <span class="text-xm text-gray-800">
+                                                        <span class="text-xm text-gray-800 max-lg:hidden">
                                                             {{ company.starting_salary ? company.starting_salary + '万円' : ''}}
                                                         </span>
                                                     </div>
@@ -142,7 +141,7 @@
 
                                                 <td class="whitespace-nowrap">
                                                     <div class="px-6 py-3">
-                                                        <span class="text-xm text-gray-800">
+                                                        <span class="text-xm text-gray-800 max-lg:hidden">
                                                             {{ company.turnover_rate ? company.turnover_rate + '%' : ''}}
                                                         </span>
                                                     </div>
@@ -150,7 +149,7 @@
                                                 <td class="whitespace-nowrap">
                                                     <div class="px-6 py-3">
                                                         <div class="flex items-center gap-x-3">
-                                                            <span class="text-xm text-gray-800">
+                                                            <span class="text-xm text-gray-800 max-lg:hidden">
                                                                 {{ company.work_overtime ? company.work_overtime + '時間' : ''}}
                                                             </span>
                                                         </div>
@@ -158,10 +157,10 @@
                                                 </td>
                                                 <td class="whitespace-nowrap">
                                                     <div class="px-4 py-1.5 inline-flex">
-                                                        <Link :href="route('company.edit', { id: company.id })" class="gap-x-1.5 text-xm text-blue-600 decoration-2 hover:underline font-medium pr-9">
+                                                        <Link :href="route('company.edit', { id: company.id })" class="gap-x-1.5 text-xm text-blue-600 decoration-2 hover:underline font-medium pr-9 max-sm:hidden">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </Link>
-                                                        <button @click="deleteCompany(company.id)" class="gap-x-1.5 text-xm text-rec-600 decoration-2 hover:underline font-medium"><i class="fa-solid fa-trash"></i></button>
+                                                        <button @click="deleteCompany(company.id)" class="gap-x-1.5 text-xm text-rec-600 decoration-2 hover:underline font-medium max-sm:hidden"><i class="fa-solid fa-trash"></i></button>
                                                     </div>
                                                 </td>
                                             </tr>

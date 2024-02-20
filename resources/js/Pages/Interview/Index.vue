@@ -83,7 +83,7 @@
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight">面接</h2>
                 </div>
                 <div>
-                    <Link id="settingButton" :href="route('interview.setting')" class="cursor-pointer text-gray-600 bg-gray-200 border-0 py-2 px-4 focus:outline-none hover:bg-gray-300 rounded text-base"><i class="fa-solid fa-gear mr-1"></i>設定</Link>
+                    <Link id="settingButton" :href="route('interview.setting')" class="cursor-pointer text-gray-600 bg-gray-200 border-0 py-2 px-4 focus:outline-none hover:bg-gray-300 rounded text-base max-md:text-sm"><i class="fa-solid fa-gear mr-1"></i>設定</Link>
                 </div>
             </div>
         </template>
@@ -91,7 +91,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-between">
                 <div>
                     <div class="border-2 border-black bg-black">
-                        <video id="video" class="-scale-x-100 w-[320px] h-[180px]"></video>
+                        <video id="video" class="-scale-x-100 w-[320px] h-[180px] max-md:h-[120px]"></video>
                     </div>
                     <div class="mt-4 text-left">
                         <a v-if="recordingButtonVisible" @click="startRecording" id="recordingButton" class="cursor-pointer text-red-600"><i class="fa-regular fa-circle-dot fa-2xl"></i><span class="pl-1">REC</span></a>

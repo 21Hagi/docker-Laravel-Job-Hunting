@@ -49,13 +49,13 @@
             <table class="w-full text-left min-w-max">
                 <tbody>
                     <tr>
-                        <th class="p-4 border-b border-gray-300 bg-gray-100 rounded-tl-xl w-52">
+                        <th class="p-4 border-b border-gray-300 bg-gray-100 rounded-tl-xl w-52 max-md:w-48">
                             <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900 opacity-70">
                                 郵便番号（ハイフンなし）
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300">
-                            <input type="number" id="zip_code1" name="zip_code1" v-model="props.formData.zip_code1" @change="fetchAddress1()" autocomplete="off" class="w-28 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="zip_code1" name="zip_code1" v-model="props.formData.zip_code1" @change="fetchAddress1()" autocomplete="off" class="w-28 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300">
-                            <input type="text" id="address1" name="address1" v-model="props.formData.address1" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" id="address1" name="address1" v-model="props.formData.address1" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                     <tr>
@@ -75,7 +75,7 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300">
-                            <input type="text" id="building_name1" name="building_name1" v-model="props.formData.building_name1" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" id="building_name1" name="building_name1" v-model="props.formData.building_name1" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                     <tr>
@@ -85,7 +85,7 @@
                             </p>
                         </th>
                         <td class="p-4">
-                            <input type="text" id="address1_furigana" name="address1_furigana" v-model="props.formData.address1_furigana" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" id="address1_furigana" name="address1_furigana" v-model="props.formData.address1_furigana" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                 </tbody>
@@ -93,7 +93,7 @@
         </div>        
         <div class="flex justify-center mt-2 ">
             <button @click="showOtherAddressForm">
-                <span>上記以外の住所を希望する場合</span>
+                <span class="max-md:text-sm">上記以外の住所を希望する場合</span>
                 <i v-if="otherAddressForm.isFormVisible" class="fa-solid fa-chevron-down pl-2 text-xs"></i>
                 <i v-else class="fa-solid fa-chevron-right pl-2 text-xs"></i>
             </button>
@@ -102,13 +102,13 @@
             <table class="w-full text-left min-w-max">
                 <tbody>
                     <tr>
-                        <th class="p-4 border-b border-gray-300 bg-gray-100 rounded-tl-xl w-52">
+                        <th class="p-4 border-b border-gray-300 bg-gray-100 rounded-tl-xl w-52 max-md:w-48">
                             <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900 opacity-70">
                                 郵便番号（ハイフンなし）
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300 flex">
-                            <input type="number" id="zip_code2" name="zip_code2" v-model="props.formData.zip_code2" @change="fetchAddress2()" autocomplete="off" class="w-28 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="number" id="zip_code2" name="zip_code2" v-model="props.formData.zip_code2" @change="fetchAddress2()" autocomplete="off" class="w-28 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                     <tr>
@@ -119,7 +119,7 @@
                         </th>
                         <td class="p-4 border-b border-gray-300 flex">
                             <input type="hidden" id="address_furigana2">
-                            <input type="text" id="address2" name="address2" v-model="props.formData.address2" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" id="address2" name="address2" v-model="props.formData.address2" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                     <tr>
@@ -129,7 +129,7 @@
                             </p>
                         </th>
                         <td class="p-4 border-b border-gray-300">
-                            <input type="text" id="building_name2" name="building_name2" v-model="props.formData.building_name2" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" id="building_name2" name="building_name2" v-model="props.formData.building_name2" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                     <tr>
@@ -139,7 +139,7 @@
                             </p>
                         </th>
                         <td class="p-4">
-                            <input type="text" id="address2_furigana" name="address2_furigana" v-model="props.formData.address2_furigana" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <input type="text" id="address2_furigana" name="address2_furigana" v-model="props.formData.address2_furigana" autocomplete="off" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out max-md:text-sm">
                         </td>
                     </tr>
                 </tbody>

@@ -137,12 +137,11 @@
         <template #header>
             <div class="flex justify-between">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">履歴書作成</h2>
-                <button @click="createPdf" class="text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-xm delete-confirm mr-5"><i class="fa-solid fa-file-arrow-down mr-2"></i>履歴書をダウンロード</button>
+                <button @click="createPdf" class="text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-xm delete-confirm mr-5 max-md:text-sm max-md:px-4"><i class="fa-solid fa-file-arrow-down mr-2"></i>履歴書をダウンロード</button>
             </div>
         </template>
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">         
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <Stepper :currentPage="currentPage" :checkCurrentPage="checkCurrentPage" @currentPageChanged="handleCurrentPageChanged" />

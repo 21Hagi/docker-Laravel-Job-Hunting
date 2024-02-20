@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <ul class="relative flex flex-row gap-x-2 mb-5 w-full text-center">
+    <ul class="relative flex flex-row gap-x-2 mb-5 w-full text-center max-lg:hidden">
         <li class="shrink basis-0 flex-1 group">
             <div class="min-h-[28px] w-full inline-flex items-center text-xs align-middle ml-10">
                 <button class="w-7 h-7 flex justify-center items-center flex-shrink-0 font-medium rounded-full" 

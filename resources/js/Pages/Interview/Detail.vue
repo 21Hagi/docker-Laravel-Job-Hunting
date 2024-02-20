@@ -141,9 +141,9 @@
 </script>
 
 <template>
-    <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden h-full">
+    <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden h-full max-xl:mx-4 max-sm:h-[400px]">
         <div class="w-full h-[420px] max-w-xl bg-black overflow-hidden">
-            <div class="text-9xl text-white text-center pt-[140px]">
+            <div class="text-9xl text-white text-center pt-[140px] max-sm:pt-[100px]">
                 <i class="fa-solid fa-user"></i>
             </div>
         </div>

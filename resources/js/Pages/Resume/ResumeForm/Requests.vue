@@ -18,13 +18,13 @@
             <table class="w-full text-left min-w-max">
                 <tbody>
                     <tr>
-                        <th class="p-4 bg-gray-100 rounded-tl-xl w-52">
+                        <th class="p-4 bg-gray-100 rounded-tl-xl w-52 max-md:w-28">
                             <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900 opacity-70">
                                 本人希望欄
                             </p>
                         </th>
                         <td class="p-4">
-                            <textarea id="requests" name="requests" v-model="props.formData.requests" class="w-[575px] h-60 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out resize-none"></textarea>
+                            <textarea id="requests" name="requests" v-model="props.formData.requests" class="w-[575px] h-60 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out resize-none max-xl:w-full"></textarea>
                         </td>
                     </tr>
                 </tbody>

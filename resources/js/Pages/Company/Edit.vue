@@ -101,8 +101,8 @@
                                         <InputError :message="props.errors.memo"></InputError>
                                     </div>
                                     <div class="p-2 w-full mt-4 flex justify-around">
-                                        <Link :href="route('company.show', { id: company.id })" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-xm"><i class="fa-solid fa-arrow-rotate-left pr-1"></i>戻る</Link>
-                                        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-xm"><i class="fa-solid fa-pen-to-square pr-1"></i>更新</button>
+                                        <Link :href="route('company.show', { id: company.id })" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-xm max-md:text-sm max-md:px-4"><i class="fa-solid fa-arrow-rotate-left pr-1"></i>戻る</Link>
+                                        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-xm max-md:text-sm max-md:px-4"><i class="fa-solid fa-pen-to-square pr-1"></i>更新</button>
                                     </div>
                                 </div>
                             </div>

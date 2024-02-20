@@ -77,14 +77,14 @@
             <div>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">面接設定</h2>
                 <div class="lg:flex lg:justify-around">
-                    <div class="flex gap-x-10">
+                    <div class="flex gap-x-10 max-xl:mt-3">
                         <div class="mr-3">
                             <label class="text-sm font-medium text-gray-900 dark:text-white text-sm">ランダムリスト 質問数</label>
-                            <input id="randomListNum" type="number" v-model="randomListNum" @input="saveListSetup" min="0" class="text-center mr-4 bg-gray-50 border border-gray-300 text-gray-900 text-sl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10">
+                            <input id="randomListNum" type="number" v-model="randomListNum" @input="saveListSetup" min="0" class="text-center mr-4 bg-gray-50 border border-gray-300 text-gray-900 text-sl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 max-md:text-sm">
                         </div>
                         <div>
                             <label class="text-sm font-medium text-gray-900 dark:text-white text-sm">話者</label>
-                            <select v-model="voiceNum" @change="saveListSetup" class="text-center mr-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10">
+                            <select v-model="voiceNum" @change="saveListSetup" class="text-center mr-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 max-md:text-sm">
                                 <option v-for="(voice, index) in japaneseVoices" :key="voice.name" :value="index">{{ voice.name }}</option>
                             </select>
                         </div>
@@ -100,10 +100,10 @@
                         <div class="flex justify-around">                 
                             <div class="w-[400px]">
                                 <div>
-                                    <span>質問リスト</span>       
-                                    <draggable v-model="sortList" item-key="id" @sort="updateListOrder('sortList', sortList)" tag="ul" group="lists" :sort="true" class="border border-2 rounded-lg min-h-[35px]">
+                                    <span class="max-xl:text-sm">質問リスト</span>       
+                                    <draggable v-model="sortList" item-key="id" @sort="updateListOrder('sortList', sortList)" tag="ul" group="lists" :sort="true" class="border border-2 rounded-lg min-h-[30px]">
                                         <template #item="{ element, index }">
-                                            <li class="w-full px-4 py-1 hover:bg-gray-200 rounded-lg">
+                                            <li class="w-full px-4 py-1 hover:bg-gray-200 rounded-lg max-xl:text-sm">
                                                 <span class="mr-2">{{ index + 1 }}.</span>
                                                 <Link class="hover:underline" :href="route('interview.edit', { id: element.id })">{{ element.title }}</Link>
                                             </li>
@@ -111,14 +111,14 @@
                                     </draggable>
                                 </div>
                                 <div class="mt-5">
-                                    <div>
+                                    <div class="max-xl:text-sm">
                                         <span class="mr-1">ランダム質問リスト</span>
                                         <Link :href="`/interview/create/randomList`" class="text-xm text-indigo-500 randomCreateButton"><i class="fa-solid fa-circle-plus"></i></Link>     
                                     </div>
                                     <div>
-                                        <draggable v-model="randomList" item-key="id" @add="handleListAddition('randomList', randomList, $event)" tag="ul" group="lists" class="columns-2 border border-2 rounded-lg min-h-[35px]">
+                                        <draggable v-model="randomList" item-key="id" @add="handleListAddition('randomList', randomList, $event)" tag="ul" group="lists" class="columns-2 border border-2 rounded-lg min-h-[30px]">
                                             <template #item="{ element }">
-                                                <li class="w-full px-4 py-1 hover:bg-gray-200 rounded-lg">
+                                                <li class="w-full px-4 py-1 hover:bg-gray-200 rounded-lg max-xl:text-sm">
                                                     <Link class="hover:underline" :href="route('interview.edit', { id: element.id })">{{ element.title }}</Link>
                                                 </li>
                                             </template>
@@ -126,15 +126,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-[400px]">
-                                <div>
+                            <div class="w-[400px] max-xl:ml-3 max-xl:mt-1">
+                                <div class="max-xl:text-sm">
                                     <span class="mr-1">非表示にする質問リスト</span>  
                                     <Link :href="`/interview/create/invisibleList`" class="text-xm text-indigo-500 invisibleCreateButton"><i class="fa-solid fa-circle-plus"></i></Link>
                                 </div>
                                 <div>
-                                    <draggable v-model="invisibleList" item-key="id" @add="handleListAddition('invisibleList', invisibleList, $event)" tag="ul" group="lists" class="columns-2 border border-2 rounded-lg min-h-[35px]">
+                                    <draggable v-model="invisibleList" item-key="id" @add="handleListAddition('invisibleList', invisibleList, $event)" tag="ul" group="lists" class="columns-2 border border-2 rounded-lg min-h-[30px]">
                                         <template #item="{ element }">
-                                            <li class="w-full px-4 py-1 hover:bg-gray-200 rounded-lg">
+                                            <li class="w-full px-4 py-1 hover:bg-gray-200 rounded-lg max-xl:text-sm">
                                                 <Link class="hover:underline" :href="route('interview.edit', { id: element.id })">{{ element.title }}</Link>
                                             </li>
                                         </template>
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                         <div class="text-center mt-8">
-                            <Link :href="route('interview.index')" class="bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-400 rounded text-base text-gray-600"><i class="fa-solid fa-arrow-rotate-left mr-2"></i>戻る</Link>
+                            <Link :href="route('interview.index')" class="bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-400 rounded text-base text-gray-600 max-xl:text-sm"><i class="fa-solid fa-arrow-rotate-left mr-2"></i>戻る</Link>
                         </div>       
                     </div>
                 </div>

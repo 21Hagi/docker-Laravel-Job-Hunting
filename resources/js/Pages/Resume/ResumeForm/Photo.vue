@@ -50,7 +50,7 @@
             <table class="w-full text-left min-w-max h-20">
                 <tbody>
                     <tr>
-                        <th class="p-4  bg-gray-100 rounded-tl-xl w-52">
+                        <th class="p-4  bg-gray-100 rounded-tl-xl w-52 max-md:w-40">
                             <p class="block font-sans text-sm antialiased font-normal leading-none text-gray-900 opacity-70">
                                 証明写真
                             </p>
@@ -59,7 +59,7 @@
                             <div class="flex">
                                 <div class="px-5">
                                     <label>
-                                        <span class="text-white bg-indigo-500 border-0 px-5 py-3 focus:outline-none hover:bg-indigo-600 rounded"><i class="fa-solid fa-cloud-arrow-up mr-2"></i>写真をアップロード</span>
+                                        <span class="text-white bg-indigo-500 border-0 px-5 py-3 focus:outline-none hover:bg-indigo-600 rounded max-md:px-3 max-md:text-sm"><i class="fa-solid fa-cloud-arrow-up mr-2"></i>写真をアップロード</span>
                                         <input class="hidden" id="photo" name="photo" type="file" accept=".jpg, .jpeg, .png" @change="handleFileChange" />
                                     </label>
                                 </div>

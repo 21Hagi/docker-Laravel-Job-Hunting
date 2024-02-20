@@ -56,9 +56,9 @@
                                     <InputError :message="props.errors.question"></InputError>
                                 </div>
                                 <div class="p-2 w-full mt-4 flex justify-around">
-                                    <Link :href="route('interview.setting')" class="bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-400 rounded text-base"><i class="fa-solid fa-arrow-rotate-left mr-2"></i>戻る</Link>
-                                    <button id="interviewUpdate" @click="updateQuestion" type="button" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base"><i class="fa-solid fa-pen-to-square mr-2"></i>更新</button>
-                                    <button id="interviewDelete" @click="deleteQuestion" type="button" class="text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-700 rounded text-base"><i class="fa-solid fa-trash mr-2"></i>削除</button>
+                                    <Link :href="route('interview.setting')" class="bg-gray-200 border-0 py-2 px-5 focus:outline-none hover:bg-gray-400 rounded text-base max-md:text-xs max-md:px-1"><i class="fa-solid fa-arrow-rotate-left mr-2 max-md:mr-1"></i>戻る</Link>
+                                    <button id="interviewUpdate" @click="updateQuestion" type="button" class="text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded text-base max-md:text-xs max-md:px-1"><i class="fa-solid fa-pen-to-square pr-1"></i>更新</button>
+                                    <button id="interviewDelete" @click="deleteQuestion" type="button" class="text-white bg-red-600 border-0 py-2 px-5 focus:outline-none hover:bg-red-700 rounded text-base max-md:text-xs max-md:px-1"><i class="fa-solid fa-trash pr-1"></i>削除</button>
                                 </div>
                             </div>
                         </div>
