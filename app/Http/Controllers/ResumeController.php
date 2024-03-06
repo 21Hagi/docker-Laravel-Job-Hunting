@@ -64,7 +64,7 @@ class ResumeController extends Controller
     {
         $userId = Auth::id();
 
-        $fileUserId = explode('_', $fileName)[0];
+        $fileUserId = $fileName[0];
 
         if ($userId != $fileUserId) {
             abort(403);

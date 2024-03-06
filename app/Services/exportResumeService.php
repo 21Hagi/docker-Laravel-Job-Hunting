@@ -7,6 +7,7 @@ use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use TCPDF_FONTS;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class exportResumeService
 {
@@ -495,7 +496,9 @@ class exportResumeService
         $this->setFirstPage();
         $this->setSecondPage();
 
-        $fileName = auth()->id() . '_resume.pdf';
+        $token = Str::random(40); 
+
+        $fileName = auth()->id() . $token . '.pdf';
 
         $directoryPath = storage_path('app/private');
         if (!File::exists($directoryPath)) {

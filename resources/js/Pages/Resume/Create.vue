@@ -43,6 +43,7 @@
     const profileData = props.resumeData.profileData || {};
     const addressData = props.resumeData.addressData || {};
     const contactData = props.resumeData.contactData || {};
+    const photoData = props.resumeData.photoData || {};
     const eduHistoryData = props.resumeData.eduHistoryData || {};
     const jobHistoryData = props.resumeData.jobHistoryData || {};
     const licenseData = props.resumeData.licenseData || {};
@@ -74,7 +75,7 @@
             other_phone_number3: contactData.other_phone_number3 ?? '', other_email: contactData.other_email ?? '',
         }),
 
-        photoForm: reactive({ photo: null }),
+        photoForm: reactive({ photo: photoData.photo }),
 
         eduHistoryForm: reactive({
             edu_history1: { year: eduHistoryData.edu_history1_year ?? '', month: eduHistoryData.edu_history1_month ?? '', history: eduHistoryData.edu_history1_history ?? '' },
