@@ -392,8 +392,7 @@ class exportResumeService
             $this->setHistory($this->request->jobHistoryForm, $fontSize, $yearX, 40.6, $historyX, $y, '職 歴', true, $lineCount);
         }
         
-        // 16行未満の場合、「以上」を描画
-        if ($lineCount < 16) {
+        if ($lineCount > 1 && $lineCount < 16) {
             $this->setText(11, 180, $y, '以上');
         }
     }
