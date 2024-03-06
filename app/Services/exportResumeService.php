@@ -4,7 +4,6 @@ namespace App\Services;
 
 use setasign\Fpdi\Tcpdf\Fpdi;
 use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
 use TCPDF_FONTS;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -331,6 +330,46 @@ class exportResumeService
     }
 
     /**
+     * 学歴・職歴の共通処理
+     *
+     * @param [type] $historyArray
+     * @param [type] $fontSize
+     * @param [type] $yearX
+     * @param [type] $monthXAdjustment
+     * @param [type] $historyX
+     * @param [type] $y
+     * @param [type] $type
+     * @param boolean $updateJobHistoryCount
+     * @param [type] $lineCount
+     * @return void
+     */
+    private function setHistory($historyArray, $fontSize, $yearX, $monthXAdjustment, $historyX, &$y, $type, $updateJobHistoryCount = false, &$lineCount)
+    {   
+        // タイプの行を描画
+        if ($type) {
+            $this->setText($fontSize, 110, $y, $type);
+            $y += 8.5;
+            $lineCount++;
+        }
+        
+        foreach ($historyArray as $history) {
+            if (empty($history['history']) || $lineCount == 16) break;
+            
+            $monthX = ($history['month'] >= 10 && $history['month'] <= 12) ? ($monthXAdjustment - 0.9) : $monthXAdjustment;
+            
+            $this->setText($fontSize, $yearX, $y, $history['year']);
+            $this->setText($fontSize, $monthX, $y, $history['month']);
+            $this->setText($fontSize, $historyX, $y, $history['history']);
+            $y += 8.5;
+            $lineCount++;
+
+            if ($updateJobHistoryCount) {
+                $this->jobHistoryCount++;
+            }
+        }
+    }
+
+    /**
      * 1ページ目の学歴・職歴を描画
      *
      * @return void
@@ -340,59 +379,20 @@ class exportResumeService
         $fontSize = 11.5;
         $yearX = 24;
         $historyX = 50;
-        $y = 142.7;
+        $y = 134.3;
         $lineCount = 1;
 
-        // 1行目
-        $this->setText($fontSize, 110, 134.3, '学 歴');
-
         if (!empty($this->request->eduHistoryForm['edu_history1']['history'])) {
-            // 2行目以降(学歴)
-            foreach ($this->request->eduHistoryForm as $eduHistory) {
-                if (empty($eduHistory['history'])) break;
-
-                if ($eduHistory['month'] >= 10 && $eduHistory['month'] <= 12) {
-                    $monthX = 39.7;
-                } else {
-                    $monthX = 40.6;
-                }
-
-                $this->setText($fontSize, $yearX, $y, $eduHistory['year']);
-                $this->setText($fontSize, $monthX, $y, $eduHistory['month']);
-                $this->setText($fontSize, $historyX, $y, $eduHistory['history']);
-                $lineCount++;
-                $y += 8.5;
-            }
+            $this->setHistory($this->request->eduHistoryForm, $fontSize, $yearX, 40.6, $historyX, $y, '学 歴', false, $lineCount);
         }
-
+        
         if (!empty($this->request->jobHistoryForm['job_history1']['history'])) {
-            // 空白行、職歴行挿入
-            $this->setText($fontSize, 110, $y, '');
-            $y += 8.5;
-            $this->setText($fontSize, 110, $y, '職 歴');
-            $y += 8.5;
-            $lineCount += 2;
-
             // 職歴
-            $this->jobHistoryCount = 0;
-            foreach ($this->request->jobHistoryForm as $jobHistory) {
-                if (empty($jobHistory['history']) || $lineCount == 16) break;
-
-                if ($jobHistory['month'] >= 10 && $jobHistory['month'] <= 12) {
-                    $monthX = 39.7;
-                } else {
-                    $monthX = 40.6;
-                }
-
-                $this->setText($fontSize, $yearX, $y, $jobHistory['year']);
-                $this->setText($fontSize, $monthX, $y, $jobHistory['month']);
-                $this->setText($fontSize, $historyX, $y, $jobHistory['history']);
-                $lineCount++;
-                $y += 8.5;
-                $this->jobHistoryCount++;
-            }
+            if ($lineCount > 1) $y += 8.5;
+            $this->setHistory($this->request->jobHistoryForm, $fontSize, $yearX, 40.6, $historyX, $y, '職 歴', true, $lineCount);
         }
-
+        
+        // 16行未満の場合、「以上」を描画
         if ($lineCount < 16) {
             $this->setText(11, 180, $y, '以上');
         }
@@ -411,26 +411,11 @@ class exportResumeService
         $y = 38;
 
         $jobHistorySecondPage = array_slice($this->request->jobHistoryForm, $this->jobHistoryCount);
+        
+        if (!is_array($jobHistorySecondPage) || empty(reset($jobHistorySecondPage)['history'])) return false;
 
-        if (!is_array($jobHistorySecondPage) || empty($jobHistorySecondPage)) return false;
-
-        if (empty(reset($jobHistorySecondPage)['history'])) return false;
-
-        foreach ($jobHistorySecondPage as $jobHistory) {
-            if (empty($jobHistory['history'])) break;
-
-            if ($jobHistory['month'] >= 10 && $jobHistory['month'] <= 12) {
-                $monthX = 42.4;
-            } else {
-                $monthX = 43.5;
-            }
-
-            $this->setText($fontSize, $yearX, $y, $jobHistory['year']);
-            $this->setText($fontSize, $monthX, $y, $jobHistory['month']);
-            $this->setText($fontSize, $historyX, $y, $jobHistory['history']);
-            $y += 8.5;
-        }
-
+        $this->setHistory($jobHistorySecondPage, $fontSize, $yearX, 43.5, $historyX, $y, null, false, $lineCount);
+        
         $this->setText(11, 180, $y, '以上');
     }
 
