@@ -62,18 +62,17 @@ class ResumeController extends Controller
      */
     public function show($fileName)
     {
-        $userId = Auth::id();
-
-        $fileUserId = $fileName[0];
-
-        if ($userId != $fileUserId) {
-            abort(403);
-        }
-
         $filePath = storage_path('app/private/' . $fileName);
 
         if (!File::exists($filePath)) {
             abort(404);
+        }
+
+        $userId = Auth::id();
+        $fileUserId = $fileName[0];
+
+        if ($userId != $fileUserId) {
+            abort(403);
         }
 
         return Response::file($filePath)->deleteFileAfterSend(true);
