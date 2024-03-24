@@ -425,7 +425,7 @@ class exportResumeService
      */
     private function setLicense()
     {
-        $fontSize = 12;
+        $fontSize = 11.5;
         $yearX = 27;
         $historyX = 53;
         $y = 131.5;
